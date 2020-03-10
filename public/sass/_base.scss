@@ -1,0 +1,17 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: $light-powder-blue;
+    font-family: 'Poppins-Regular', sans-serif;
+    font-size: 1em;
+    color: $purple;
+    border-top: $purple;
+}
+
+main {
+    position: relative;
+}

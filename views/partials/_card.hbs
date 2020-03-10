@@ -1,0 +1,23 @@
+<article class="card -carousel">
+    <section class="card__inner -front">
+        <header class="card__header">
+            <h1 class="card__header__title">{{frabl.key}}</h1>
+
+            {{#if coverimages.[1]}}
+                <img class="card__header__image" src="{{coverimages.[1]}}" alt="{{frabl.key}}">
+
+            {{else}}
+                <p class="card__header__no-image">No image</p>
+            {{/if}}
+        </header>
+    </section>
+    <section class="card__inner -back">
+        <p class="card__summary">
+            {{#if summaries.[0]}}
+                {{summaries.[0]}}
+            {{else}}
+                Geen samenvatting
+            {{/if}}
+        </p>
+    </section>
+</article>

@@ -1,8 +1,8 @@
-body {
-    border: 10px solid red;
-    color: blue
-}
+@import "_variables",
+        "_mixins",
+        "_base",
+        "_buttons",
 
-h1 {
-    color: red;
-}
+        "pages/_home.scss",
+        "components/_card"
+;
