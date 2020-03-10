@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="nl" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Boekhappen</title>
+    <link rel="stylesheet" href="static/css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/0.8.1/mustache.min.js"></script>
+  </head>
+  <body>
+    <header class="header">
+      <img class="header__logo" src="./static/images/oba-jnr.png" alt="oba junior">
+      <h1 class="header__title">Boekhappen</h1>
+    </header>
+
+    <main>
+      <p class="helper">Klik op een boek om je keuze op te slaan.</p>
+      <section class="books-overview"></section>
+
+      <a id="done">Klaar</a>
+    </main>
+
+    <section class="results-overview hide-content">
+      <header>
+        <h2 class="results-overview__title">Lekker gegeten?</h2>
+        <p class="results-overview__subtitle">Op basis van jouw keuzes verwachten wij dat deze onderwerpen bij je in de smaak zullen vallen.</p>
+
+        <div class="results"></div>
+      </header>
+
+      <div class="buttons">
+        <a id="return" class="return">Terug</a>
+        <a id="remove" class="remove">Verwijder resultaten</a>
+      </div>
+    </section>
+
+
+    <script src="./static/js/vendor/routie.min.js"></script>
+    <script type="module" src="static/js/app.js"></script>
+  </body>
+</html>

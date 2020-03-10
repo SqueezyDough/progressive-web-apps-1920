@@ -1,55 +1,79 @@
-# Progressive Web Apps @cmda-minor-web · 2019-2020
+# OBA Boekhappen (OBA Book Bites)
 
-In this course we will convert the client side web application previously made at the OBA into a server side rendered application. We also add functionalities based on the Service Worker and turn the application into a Progressive Web App. Ultimately we are going to implement a series of optimisations to improve the performance of the application.  
+# Table of contents
+* [Assignment](#Assignment)
+* [Description](#Description)
+* [Features](#Features)
+* [Prototype](#Prototype)
+* [API](#API)
+* * [Data](#Data)
+* * [Data Transfornation](#Data-Transformation)
+* [Install](#Install)
+* * [Clone repository](#Clone-repo)
+* * [Usage](#Usage)
+* [License](#License)
 
-## Learning goals
-- _You understand the difference between client side and server side rendering and you can apply server side rendering
-in your application_
-- _You understand how a Service Worker works and you can implement it in your application._
-- _You understand how the critical render path works and how you can optimize it for a better runtime and / or perceived performance._
+<a name="Assignment"></a>
+# Assignment
+I've been assigned to create a single page webapp that helps children from 9-12 years old with their paper. This prototype uses the OBA API to fetch and display books and media from the OBA.
 
-[Rubric](https://docs.google.com/spreadsheets/d/e/2PACX-1vSc48v1nrjcwH0llcTd68xyK7f2fDC2UL4d6h4ZNW3DU8ucez6ZOHiId1XSX0RP5ByvLC8p5pVUGZT4/pubhtml)
+<a name="Description"></a>
+# Description
+This webapp focusses on the ideation phase for crating a paper. Based on a old dutch tradition known as koekhappen (cake bites), children can eat books of their liking. When they're done, they can go to a results page. This page shows which topics are likely to be preferred by the user based on what they have eaten. The best match is displayed on top of the page and the worst match is displayed at the bottom.
 
-## Program
+<a name="Prototype"></a>
+# Prototype
+![](https://github.com/SqueezyDough/frontend-applications/blob/master/wiki/home2.jpg?)
 
-### Week 1 - Server Side Rendering 📡
+<a name="Features"></a>
+# Features
+- [X] Books carousel
+- [X] Eat books
+- [X] Display preferences
+- [X] Save fetched books in local storage
+- [X] Save choices in local storage
+- [X] Remove results
+- [ ] Undo picked book
+- [ ] Show picked books on carousel page
+- [ ] Remove duplicates in carousel
+- [ ] Combine related categories
+- [ ] Make the site compatible with other browser (chrome-only)
 
-Goal: Render web pages server side
+<a name="API"></a>
+# API
 
-[Exercises](https://github.com/cmda-minor-web/progressive-web-apps-1920/blob/master/course/week-1.md)  
-[Slides](...)  
-[The Web landscape](...)  
+<a name="Data"></a>
+## Data
+I've selected a few categories that might be interesting for the target audience.
 
+* Voetbal (Soccer)
+* Politie (Police)
+* Brandweer (Fire brigade)
+* Planeet (Planets)
+* Millieu (Environment)
+* Dieren (Animals)
+* Dinosaurus (Dino's!)
+* Pesten (Bullying)
+* Smartphone (Smartphone)
+* Social media (Social media)
+* Muziek (Music)
+* Arme landen (Poor countries)
+* Derde wereld (Third world countries)
 
-### Week 2 - Progressive Web App 🚀
+<a name="Data-Transformation"></a>
+## Data Transformation
+I've sorted the data by topic.
 
-Goals: Convert application to a Progressive Web App
+<a name="Install"></a>
+# Install
+<a name="Clone-repo"></a>
+## Clone repository
+`git clone https://github.com/SqueezyDough/project-1-1920.git`
 
-[Opdrachten](https://github.com/cmda-minor-web/progressive-web-apps-1920/blob/master/course/week-2.md)  
-[Slides](...)
+<a name="Usage"></a>
+## Usage 
+`Run index.html with live server`
 
-
-### Week 2 - Critical Rendering Path 📉 
-
-Doel: Optimize the Critical Rendering Path   
-[Opdrachten](https://github.com/cmda-minor-web/progressive-web-apps-1920/blob/master/course/week-3.md)  
-[Slides](...)
-
-
-<!-- Add a link to your live demo in Github Pages 🌐-->
-
-<!-- ☝️ replace this description with a description of your own work -->
-
-<!-- Add a nice image here at the end of the week, showing off your shiny frontend 📸 -->
-
-<!-- Maybe a table of contents here? 📚 -->
-
-<!-- How about a section that describes how to install this project? 🤓 -->
-
-<!-- ...but how does one use this project? What are its features 🤔 -->
-
-<!-- What external data source is featured in your project and what are its properties 🌠 -->
-
-<!-- Maybe a checklist of done stuff and stuff still on your wishlist? ✅ -->
-
-<!-- How about a license here? 📜 (or is it a licence?) 🤷 -->
+<a name="License"></a>
+# License 
+[MIT](https://github.com/SqueezyDough/frontend-applications/blob/master/LICENSE) @ SqueezyDough

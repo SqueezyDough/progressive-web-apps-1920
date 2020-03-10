@@ -1,0 +1,47 @@
+{
+  "name": "project-1-1920",
+  "version": "1.0.0",
+  "description": "OBA Boekenhappen",
+  "main": "index.js",
+  "scripts": {
+    "prestart": "npm run build:css",
+    "start": "nodemon server.js",
+
+    "prebuild:css": "rimraf ./public/dist",
+    "build:css": "gulp sass",
+
+    "watch:css": "gulp watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SqueezyDough/project-1-1920.git"
+  },
+  "author": "Leroy van Biljouw",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SqueezyDough/project-1-1920/issues"
+  },
+  "homepage": "https://github.com/SqueezyDough/project-1-1920#readme",
+  "devDependencies": {
+    "browser-sync": "^2.26.7",
+    "dotenv": "^8.2.0",
+    "eslint": "^6.8.0",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "gulp": "^4.0.2",
+    "gulp-clean-css": "^4.2.0",
+    "gulp-sass": "^4.0.2",
+    "install": "^0.13.0",
+    "node-sass": "^4.13.1",
+    "nodemon": "^2.0.2",
+    "npm": "^6.14.2"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-handlebars": "^3.1.0",
+    "node-fetch": "^2.6.0"
+  }
+}
