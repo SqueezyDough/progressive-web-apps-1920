@@ -4,7 +4,8 @@
   "description": "OBA Boekenhappen",
   "main": "index.js",
   "scripts": {
-    "prestart": "npm run build:css",
+    "predev": "npm run build:css",
+    "dev": "nodemon server.js",
     "start": "node server.js",
     "prebuild:css": "rimraf ./public/dist",
     "build:css": "gulp sass",
