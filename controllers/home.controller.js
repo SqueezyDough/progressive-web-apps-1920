@@ -7,18 +7,12 @@ exports.init = function(req, res) {
         .then(data => {
             console.log(data)
 
-            res.render('Home', {
-                title: 'Home',
+            const viewName = 'home'
+            const viewData = {
                 app: process.env.NAME,
                 books: data.results
-            })
+            }
 
-            // const viewName = 'Home'
-            // const viewData = {
-            //     app: process.env.NAME,
-            //     books: data.results
-            // }
-
-            // render.renderView(res, viewName, viewData)
+            render.renderView(res, viewName, viewData)
         })
 }
