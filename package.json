@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "prestart": "npm run build:css",
-    "start": "nodemon server.js",
+    "start": "npm run server.js",
     "prebuild:css": "rimraf ./public/dist",
     "build:css": "gulp sass",
     "watch:css": "gulp watch"
