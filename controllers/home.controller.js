@@ -5,13 +5,20 @@ require("dotenv").config();
 exports.init = function(req, res) {
     api.FetchData()
         .then(data => {
-            const viewName = 'Home';
-            const viewData = {
+            console.log(data)
+
+            res.render('Home', {
+                title: 'Home',
                 app: process.env.NAME,
                 books: data.results
-            }
+            })
 
-            render.renderView(res, viewName, viewData)
+            // const viewName = 'Home'
+            // const viewData = {
+            //     app: process.env.NAME,
+            //     books: data.results
+            // }
+
+            // render.renderView(res, viewName, viewData)
         })
-        .then(data => console.log(data))
 }
