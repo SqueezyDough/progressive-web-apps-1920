@@ -23,7 +23,12 @@ This webapp focusses on the ideation phase for crating a paper. Based on a old d
 
 <a name="Prototype"></a>
 # Prototype
-![](https://github.com/SqueezyDough/frontend-applications/blob/master/wiki/home2.jpg?)
+## Book bites
+![](https://github.com/SqueezyDough/project-1-1920/blob/master/github/carousel.png?)		
+## Recommendations		
+![](https://github.com/SqueezyDough/project-1-1920/blob/master/github/res1.png?)		
+![](https://github.com/SqueezyDough/project-1-1920/blob/master/github/res2.png?)		
+
 
 <a name="Features"></a>
 # Features
@@ -71,9 +76,9 @@ I've sorted the data by topic.
 `git clone https://github.com/SqueezyDough/project-1-1920.git`
 
 <a name="Usage"></a>
-## Usage 
+## Usage
 `Run index.html with live server`
 
 <a name="License"></a>
-# License 
+# License
 [MIT](https://github.com/SqueezyDough/frontend-applications/blob/master/LICENSE) @ SqueezyDough
