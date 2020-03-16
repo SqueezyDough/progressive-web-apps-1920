@@ -1,0 +1,13 @@
+{
+  "name": "Boekhappen",
+  "short_name": "Boekhappen",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#fff",
+  "description": "A simply readable Hacker News app.",
+  "icons": [{
+    "src": "./images/touch/homescreen256.png",
+    "sizes": "256x256",
+    "type": "image/png"
+  }]
+}
