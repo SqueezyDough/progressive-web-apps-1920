@@ -5,7 +5,7 @@
   "display": "standalone",
   "description": "Book bites",
   "icons": [{
-    "src": "./images/touch/homescreen256.png",
+    "src": "/images/touch/homescreen256.png",
     "sizes": "256x256",
     "type": "image/png"
   }]
