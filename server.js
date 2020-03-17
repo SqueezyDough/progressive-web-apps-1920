@@ -19,6 +19,9 @@ app
     }))
     .get('/', router)
     .get('/offline', (req, res) => {
-        res.render('offline')
+        res.render('pages/offline')
+    })
+    .get('/details', (req, res) => {
+        res.render('pages/details')
     })
     .listen(port, () => console.log(`Listening on port ${port}!`))

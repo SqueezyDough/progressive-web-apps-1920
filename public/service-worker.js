@@ -24,47 +24,60 @@ self.addEventListener('activate', e => {
 });
 
 self.addEventListener('fetch', e => {
-    console.log('sw fetch for request: ', e.request.url)
+    const fileType = e.request.destination
 
-    console.log(isCoreGetRequest(e.request))
-    console.log(isHtmlGetRequest(e.request))
-
+    // cache only strategy
     if (isCoreGetRequest(e.request)) {
-        console.log('sw core get request: ')
-
+        // open from cache
         e.respondWith(
             caches.open(CORE_CACHE_NAME)
                 .then(cache => cache.match(e.request.url))
         )
-    } else if (isHtmlGetRequest(e.request)) {
-        console.log('html get request: ', e.request.url)
-
+    // generic fallback
+    } else if (isHtmlGetRequest(e.request) || (isFileGetRequest(e.request, fileType) && isCachedFileType(fileType))) {
         e.respondWith(
-            caches.open('html-cache')
-            .then(res => res ? res : fetchAndCache(e.request, 'html-cache'))
-            .catch(e => {
-                return caches.open(CORE_CACHE_NAME)
-                    .then(cache => cache.match('/offline'))
-            })
+            caches.open(`${fileType}-cache`)
+                .then(cache => cache.match(e.request.url))
+                .then(res => res ? res : fetchAndCache(e.request, `${fileType}-cache`)
+                .catch(e => {
+                    return caches.open(CORE_CACHE_NAME)
+                        .then(cache => cache.match('/offline'))
+                })
+            )
         )
     }
 })
 
+function isCachedFileType(fileType) {
+    return ['image', 'font', 'manifest'].includes(fileType)
+}
+
+function buildUrl(req) {
+    const cors = 'https://cors-anywhere.herokuapp.com/'
+    return (req.destination === 'image' && req.url.includes('data.bibliotheek.nl') ? `${cors}${req.url}` : req.url)
+}
+
 function fetchAndCache(request, cacheName) {
-    return fetch(request)
-        .then(res => {
-            if (!res.ok) {
-                throw new TypeError('Bad response status')
+    const url = buildUrl(request)
+
+    return fetch(url)
+        .then(response => {
+            if (!response.ok) {
+            throw new TypeError('Bad response status');
             }
 
             const clone = response.clone()
-            caches.open(cacheName).then(cache => cache.put(req, clone))
-            return res
+            caches.open(cacheName).then((cache) => cache.put(request.url, clone))
+            return response
         })
 }
 
 function isCoreGetRequest(request) {
     return request.method === 'GET' && CORE_ASSETS.includes(getPathName(request.url));
+}
+
+function isFileGetRequest(request, fileType) {
+    return request.method === 'GET' && (request.headers.get('accept') !== null && request.destination.indexOf(`${fileType}`) > -1);
 }
 
 function isHtmlGetRequest(request) {
