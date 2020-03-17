@@ -63,7 +63,7 @@ function fetchAndCache(request, cacheName) {
     return fetch(url)
         .then(response => {
             if (!response.ok) {
-            throw new TypeError('Bad response status');
+                throw new TypeError('Bad response status');
             }
 
             const clone = response.clone()
