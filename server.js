@@ -18,4 +18,7 @@ app
         partialsDir: path.join(__dirname, 'views/partials')
     }))
     .get('/', router)
+    .get('/offline', (req, res) => {
+        res.render('offline')
+    })
     .listen(port, () => console.log(`Listening on port ${port}!`))
