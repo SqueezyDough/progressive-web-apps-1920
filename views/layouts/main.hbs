@@ -4,12 +4,27 @@
     <meta charset="utf-8">
     <title>{{title}}</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="./public/dist/site.css">
-    <link rel="manifest" href="./public/manifest.json">
+    <link rel="stylesheet" href="/dist/site.css">
+    <link rel="manifest" href="/manifest.json">
 </head>
 <body>
     {{> _global-nav}}
 
     {{{body}}}
+
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('service-worker.js')
+                .then(regis => {
+                    regis.update()
+                    console.log('sw registered 😎', regis.scope)
+                })
+                .catch(err => {
+                    console.log('😥 sw registration failed: ', err)
+                })
+            })
+        }
+    </script>
 </body>
 </html>

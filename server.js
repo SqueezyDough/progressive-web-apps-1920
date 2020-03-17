@@ -10,7 +10,7 @@ const port = process.env.PORT || 3000;
 require("dotenv").config();
 
 app
-    .use("/public", express.static(path.join(__dirname, "public")))
+    .use("/", express.static(path.join(__dirname, "public")))
     .set('view engine', 'hbs')
     .engine('hbs', exphbs({
         extname: '.hbs',

@@ -6,7 +6,8 @@ const gulp = require("gulp"),
 
 require("dotenv").config();
 
-//TODO: minify css
+const port = process.env.PORT || 3000
+
 gulp.task("sass", function() {
 	return gulp.src("public/sass/**/*.scss")
 		.pipe(sass())
@@ -20,7 +21,7 @@ gulp.task("sass", function() {
 
 gulp.task("watch", function() {
 	browserSync.init({
-		proxy: `localhost:${process.env.PORT}`
+		proxy: `localhost:${port}`
 	});
 
 	gulp.watch("public/sass/**/*.scss", gulp.series("sass"));
