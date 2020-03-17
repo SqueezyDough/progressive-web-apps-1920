@@ -1,6 +1,6 @@
 const CORE_CACHE = 1
 const CORE_CACHE_NAME = `core-cache-v${CORE_CACHE}`
-const CORE_ASSETS = ['./', '/dist/styles.css']
+const CORE_ASSETS = ['./']
 
 self.addEventListener('install', e => {
     console.log('sw install')
