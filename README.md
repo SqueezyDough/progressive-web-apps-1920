@@ -13,6 +13,9 @@
 * * [Usage](#Usage)
 * [License](#License)
 
+# Feedback
+- [ ] Lukt nog niet om de manifest icons werkend te krijgen op IOS
+
 <a name="Assignment"></a>
 # Assignment
 I've been assigned to create a single page webapp that helps children from 9-12 years old with their paper. This prototype uses the OBA API to fetch and display books and media from the OBA.
