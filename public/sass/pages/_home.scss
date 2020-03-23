@@ -1,6 +1,6 @@
 .books-carousel {
     display: flex;
     justify-content: center;
+    min-height: 100vh;
     perspective: 1600px;
-    margin-top: -3rem;
 }

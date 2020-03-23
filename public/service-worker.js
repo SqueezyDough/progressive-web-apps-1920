@@ -48,15 +48,6 @@ self.addEventListener('fetch', e => {
     }
 })
 
-function isCachedFileType(fileType) {
-    return ['image', 'font', 'manifest'].includes(fileType)
-}
-
-function buildUrl(req) {
-    const cors = 'https://cors-anywhere.herokuapp.com/'
-    return (req.destination === 'image' && req.url.includes('data.bibliotheek.nl') ? `${cors}${req.url}` : req.url)
-}
-
 function fetchAndCache(request, cacheName) {
     const url = buildUrl(request)
 
@@ -70,6 +61,15 @@ function fetchAndCache(request, cacheName) {
             caches.open(cacheName).then((cache) => cache.put(request.url, clone))
             return response
         })
+}
+
+function isCachedFileType(fileType) {
+    return ['image', 'font', 'manifest'].includes(fileType)
+}
+
+function buildUrl(req) {
+    const cors = 'https://cors-anywhere.herokuapp.com/'
+    return (req.destination === 'image' && req.url.includes('data.bibliotheek.nl') ? `${cors}${req.url}` : req.url)
 }
 
 function isCoreGetRequest(request) {

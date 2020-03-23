@@ -1,0 +1,12 @@
+.app-header {
+    position: absolute;
+    width: 100%;
+}
+
+.app-header__title {
+    margin: 0;
+    text-align: center;
+    font-size: 3.2rem;
+    font-family: $app-title-font;
+
+}
