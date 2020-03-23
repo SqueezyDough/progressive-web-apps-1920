@@ -1,9 +1,17 @@
 <section class="books-carousel">
-    {{#each books}}
-        {{> _card}}
-    {{/each}}
+    <form id="form_carousel" class="carousel-form" method="POST" action="/results">
+        {{#each carouselData }}
+            <article class="card -carousel" data-id="{{id}}">
+                {{> _card}}
+            </article>
+        {{/each}}
 
-    <a id="btn_done" class="btn -ready" href="">Klaar</a>
+        {{!-- clicked books --}}
+        <input id="submit_data" type="hidden" name="carouselChoices">
+        <input type="hidden" name="allData" value="{{allData}}">
+
+        <input id="btn_done" class="btn -ready" type="submit" value="Klaar">
+    </form>
 </section>
 
-<script src='/js/carousel.js'></script>
+<script type='module' src='/js/carousel.js'></script>

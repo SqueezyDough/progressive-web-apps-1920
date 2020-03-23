@@ -5,6 +5,8 @@ const path = require('path')
 const exphbs = require('express-handlebars')
 const router = require('./routes/index.routes')
 const minifyHTML = require('express-minify-html-2');
+const bodyParser = require('body-parser')
+
 const app = express()
 const port = process.env.PORT || 3000;
 
@@ -12,6 +14,8 @@ require("dotenv").config();
 
 app
     .use("/", express.static(path.join(__dirname, "public")))
+    .use(bodyParser.urlencoded({ extended: false }))
+    .use(bodyParser.json())
     .set('view engine', 'hbs')
     .engine('hbs', exphbs({
         extname: '.hbs',
@@ -30,11 +34,5 @@ app
             minifyJS: true
         }
     }))
-    .get('/', router)
-    .get('/offline', (req, res) => {
-        res.render('pages/offline')
-    })
-    .get('/details', (req, res) => {
-        res.render('pages/details')
-    })
+    .use('/', router)
     .listen(port, () => console.log(`Listening on port ${port}!`))

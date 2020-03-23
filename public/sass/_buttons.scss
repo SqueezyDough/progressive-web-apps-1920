@@ -3,8 +3,10 @@
     padding: 1rem 4rem;
     border-radius: 3px 3px 0 0;
     border-top: 3px solid $purple;
+    font-size: 1rem;
     color: $purple;
     text-decoration: none;
+    cursor: pointer;
     transition: all .2s;
 
     &:hover {
@@ -16,5 +18,7 @@
 .-ready {
     position: absolute;
     bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
     background-color: $medium-powder-blue;
 }

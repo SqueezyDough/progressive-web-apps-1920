@@ -1,8 +1,9 @@
 const express = require('express')
 const router = express.Router()
 const home = require('../controllers/home.controller')
-const render = require('../controllers/render.controller')
 
 router.get('/', home.init)
+router.post('/results', home.results)
+router.get('/offline', home.offline)
 
 module.exports = router

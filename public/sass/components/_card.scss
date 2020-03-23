@@ -1,103 +1,105 @@
 .card {
-    width: 15rem;
-    height: 20rem;
-    cursor: pointer;
+  width: 15rem;
+  height: 20rem;
+  position: relative;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transition: transform 1s;
 
-    &.-carousel {
-      position: absolute;
+  &:hover{
+    transform: rotateY(.5turn);
+    z-index: 99;
+  }
+}
+
+.-carousel {
+  position: absolute;
+  top: -30rem;
+  box-shadow: 10px 20px 20px #00000025;
+  animation: dropCard forwards,
+            //liftCard forwards;
+            ;
+  animation-timing-function: cubic-bezier(.75,-0.5,0,1.25);
+
+  &:nth-last-of-type(1) {
+    left: 5rem;
+    transform: rotate(8deg);
+    animation-duration: .7s, 7s;
+    animation-delay: 1s, 17s;
+  }
+
+  &:nth-last-of-type(2) {
+    left: 21rem;
+    transform: rotate(12deg);
+    animation-duration: .8s, 7s;
+    animation-delay: 1s, 16.5s;
+  }
+
+  &:nth-last-of-type(3) {
+    left: 37rem;
+    transform: rotate(4deg);
+    animation-duration: .9s, 7s;
+    animation-delay: 1s, 16.8s;
+  }
+
+  &:nth-last-of-type(4) {
+    left: 53rem;
+    transform: rotate(12deg);
+    animation-duration: .7s, 7s;
+    animation-delay: 1s, 16.2s;
+  }
+
+  &:nth-last-of-type(5) {
+    left: 69rem;
+    transform: rotate(8deg);
+    animation-duration: .6s, 7s;
+    animation-delay: 1s, 16.9s;
+  }
+
+  &::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: -20rem;
+    left: 1rem;
+    height: 22rem;
+    width: 4px;
+    transform: rotate(353deg);
+    background: repeating-linear-gradient(
+      0deg,
+      rgba(0,0,0,.15), rgba(0,0,0,.15),
+      $medium-powder-blue 1px, $medium-powder-blue 2px
+    );
+  }
+
+  &:hover{
+    transform: rotateY(.5turn) rotate(5deg);
+    z-index: 99;
+  }
+
+  @keyframes dropCard {
+    0% {
       top: -30rem;
-      box-shadow: 10px 20px 20px #00000025;
-      transform-style: preserve-3d;
-      transition: transform 1s;
-      animation: dropCard forwards,
-                //liftCard forwards;
-                ;
-      animation-timing-function: cubic-bezier(.75,-0.5,0,1.25);
     }
+    70% {
+      top: 28vh;
+    }
+    100% {
+      top: 25vh;
+    }
+  }
 
-    &:nth-last-of-type(1) {
-      left: 5rem;
-      transform: rotate(8deg);
-      animation-duration: .7s, 7s;
-      animation-delay: 1s, 17s;
+  @keyframes liftCard {
+    0% {
+      top: 25vh;
     }
-
-    &:nth-last-of-type(2) {
-      left: 21rem;
-      transform: rotate(12deg);
-      animation-duration: .8s, 7s;
-      animation-delay: 1s, 16.5s;
+    15%, 75% {
+      top: 20vh;
     }
-
-    &:nth-last-of-type(3) {
-      left: 37rem;
-      transform: rotate(4deg);
-      animation-duration: .9s, 7s;
-      animation-delay: 1s, 16.8s;
+    100% {
+      top: -30rem;
     }
-
-    &:nth-last-of-type(4) {
-      left: 53rem;
-      transform: rotate(12deg);
-      animation-duration: .7s, 7s;
-      animation-delay: 1s, 16.2s;
-    }
-
-    &:nth-last-of-type(5) {
-      left: 69rem;
-      transform: rotate(8deg);
-      animation-duration: .6s, 7s;
-      animation-delay: 1s, 16.9s;
-    }
-
-    &:hover{
-      transform: rotateY(.5turn) rotate(5deg);
-      z-index: 99;
-    }
-
-    &:not(:last-child) {
-      margin-right: 1rem;
-    }
-
-    &::before {
-      content: '';
-      display: block;
-      position: absolute;
-      top: -20rem;
-      left: 1rem;
-      height: 22rem;
-      width: 4px;
-      transform: rotate(353deg);
-      background: repeating-linear-gradient(
-        0deg,
-        rgba(0,0,0,.15), rgba(0,0,0,.15),
-        $medium-powder-blue 1px, $medium-powder-blue 2px
-      );
-    }
-
-    @keyframes dropCard {
-        0% {
-          top: -30rem;
-        }
-        70% {
-          top: 28vh;
-        }
-        100% {
-          top: 25vh;
-        }
-    }
-
-    @keyframes liftCard {
-      0% {
-        top: 25vh;
-      }
-      15%, 75% {
-        top: 20vh;
-      }
-      100% {
-        top: -30rem;
-      }
-    }
+  }
 }
 
 .card__inner {
