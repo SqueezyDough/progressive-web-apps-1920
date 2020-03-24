@@ -9,7 +9,7 @@ require("dotenv").config();
 const port = process.env.PORT || 3000
 
 gulp.task("sass", function() {
-	return gulp.src("public/sass/**/*.scss")
+	return gulp.src("./dev/sass/**/*.scss")
 		.pipe(sass())
 		.on("error", sass.logError)
 		.pipe(cleanCSS())
@@ -24,7 +24,7 @@ gulp.task("watch", function() {
 		proxy: `localhost:${port}`
 	});
 
-	gulp.watch("public/sass/**/*.scss", gulp.series("sass"));
+	gulp.watch("./dev/sass/**/*.scss", gulp.series("sass"));
 	gulp.watch("views/**/*.hbs", browserSync.reload);
 	gulp.watch("public/js/**/*.js", browserSync.reload);
 });
