@@ -1,16 +1,19 @@
 @font-face {
     font-family: "Poppins-Regular";
     src: url("../fonts/Poppins/Poppins-Regular.ttf");
+    font-display: swap;
 }
 
 @font-face {
     font-family: "Poppins-Bold";
     src: url("../fonts/Poppins/Poppins-Bold.ttf");
+    font-display: swap;
 }
 
 @font-face {
     font-family: "Hanged-Letters";
     src: url("../fonts/HangedLetters/Hanged-Letters.ttf");
+    font-display: swap;
 }
 
 $app-title-font: 'Hanged-Letters', sans-serif;
