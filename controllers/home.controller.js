@@ -1,18 +1,18 @@
-const http = require('http');
-const cloneResponse = require('clone-response');
 const api = require('./api.controller')
 const render = require('./render.controller')
+const store = require('./collection.controller')
+
 require("dotenv").config();
 
 exports.init = function(req, res) {
     api.FetchData()
+        .then(data => store.saveCollection('./collection/', data))
         .then(data => {
             const randomizedData = takeRandomResultsFromList(data.results)
 
             const viewName = 'home'
             const viewData = {
                 app: process.env.NAME,
-                allData: JSON.stringify(data),
                 carouselData: randomizedData
             }
 
@@ -22,15 +22,29 @@ exports.init = function(req, res) {
 
 exports.results = function(req, res) {
     const choices = req.body.carouselChoices.split(',')
-    const allBooks = JSON.parse(req.body.allData).results
+    const allBooks = store.getCollection('./collection/books.json').results
     const bookJson = getAllChoices(allBooks, choices)
-
-    console.log(bookJson)
 
     const viewName = 'pages/results'
     const viewData = {
         app: process.env.NAME,
-        books: bookJson
+        books: bookJson,
+        booksStringify: JSON.stringify(bookJson)
+    }
+
+    render.renderView(res, viewName, viewData)
+}
+
+exports.details = function(req, res) {
+    const allBooks = store.getCollection('./collection/books.json').results
+    const book = findBook(allBooks, req.params.id)
+
+    console.log(book)
+
+    const viewName = 'pages/details'
+    const viewData = {
+        app: process.env.NAME,
+        book: book
     }
 
     render.renderView(res, viewName, viewData)
@@ -43,6 +57,10 @@ exports.offline = function(req, res) {
     }
 
     render.renderView(res, viewName, viewData)
+}
+
+function findBook(books, id) {
+    return books.find(book => book.id === id)
 }
 
 function getAllChoices(collection, choices) {

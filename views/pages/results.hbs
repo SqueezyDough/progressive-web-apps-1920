@@ -1,8 +1,10 @@
 
 <section class="results">
     {{#each books }}
+    <a href="./details/{{id}}/{{booksStringify}}">
         <article class="card">
             {{> _card}}
         </article>
+    </a>
     {{/each}}
 </section>
