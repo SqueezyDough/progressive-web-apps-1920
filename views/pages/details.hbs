@@ -1,8 +1,49 @@
-{{book}}
-<section class="details">
-    <article class="card .-details">
-        {{> _card}}
 
-        <h1>{{frabl.key1}}</h1>
+<section class="details-container">
+    <article class="card -details">
+        <a class="details-container__back" href="../overview">Overzicht</a>
+
+        <header class="card__header">
+            {{#if book.coverimages.[1]}}
+                <img class="card__header__image" src="{{book.coverimages.[1]}}" alt="{{book.frabl.key1}}">
+            {{else}}
+                <p class="card__header__no-image">No image</p>
+            {{/if}}
+        </header>
+        <section class="card__details">
+            <h1 class="card__details__title">{{book.frabl.key1}}</h1>
+
+            <h2 class="card__details__sub-title">Samenvatting</h2>
+            <p class="card__details__info">
+                {{#if book.summaries.[0]}}
+                    {{book.summaries.[0]}}
+                {{else}}
+                    Geen samenvatting
+                {{/if}}
+            </p>
+        </section>
+        <section class="card__sub-details">
+            <div>
+                <h2 class="card__sub-details__sub-title">Auteur(s)</h2>
+                {{#each book.authorsDetailed}}
+                    <p class="card__sub-details__info">{{full}}</p>
+                {{/each}}
+            </div>
+
+            <div>
+                <h2 class="card__sub-details__sub-title">Uitgever</h2>
+                <p class="card__sub-details__info">{{book.publisher}}</p>
+            </div>
+
+            <div>
+                <h2 class="card__sub-details__sub-title">ISBN</h2>
+                <p class="card__sub-details__info">{{book.isbn}}</p>
+            </div>
+
+            <div>
+                <h2 class="card__sub-details__sub-title">Meer informatie</h2>
+                <a class="card__sub-details__info" href="{{book.detailLink}}">Bekijk op oba.nl</a>
+            </div>
+        </section>
     </article>
 </section>

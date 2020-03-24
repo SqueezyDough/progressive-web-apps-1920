@@ -40,9 +40,7 @@ exports.postResults = function(req, res) {
     const allBooks = store.getCollection('./collection/books.json').results
     const bookJson = getAllChoices(allBooks, choices)
 
-    const save = store.saveCollection('./collection/choices.json', bookJson)
-
-    // console.log('post', save)
+    store.saveCollection('./collection/choices.json', bookJson)
 
     const viewName = './overview'
 
