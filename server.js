@@ -26,18 +26,18 @@ app
         defaultLayout: 'main',
         partialsDir: path.join(__dirname, 'views/partials')
     }))
-    .use(minifyHTML({
-        override: true,
-        exception_url: false,
-        htmlMinifier: {
-            removeComments: true,
-            collapseWhitespace: true,
-            collapseBooleanAttributes: true,
-            removeAttributeQuotes: true,
-            removeEmptyAttributes: true,
-            minifyJS: true
-        }
-    }))
+    // .use(minifyHTML({
+    //     override: true,
+    //     exception_url: false,
+    //     htmlMinifier: {
+    //         removeComments: true,
+    //         collapseWhitespace: true,
+    //         collapseBooleanAttributes: true,
+    //         removeAttributeQuotes: true,
+    //         removeEmptyAttributes: true,
+    //         minifyJS: true
+    //     }
+    // }))
     .use('/', router)
     .listen(port, () => console.log(`Listening on port ${port}!`))
 

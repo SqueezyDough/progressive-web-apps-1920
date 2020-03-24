@@ -6,7 +6,7 @@ require("dotenv").config();
 
 exports.init = function(req, res) {
     api.FetchData()
-        .then(data => store.saveCollection('./collection/', data))
+        .then(data => store.saveCollection('./collection/books.json', data))
         .then(data => {
             const randomizedData = takeRandomResultsFromList(data.results)
 
@@ -20,19 +20,33 @@ exports.init = function(req, res) {
         })
 }
 
-exports.results = function(req, res) {
-    const choices = req.body.carouselChoices.split(',')
-    const allBooks = store.getCollection('./collection/books.json').results
-    const bookJson = getAllChoices(allBooks, choices)
+exports.overview = function(req, res) {
+    const choices = store.getCollection('./collection/choices.json')
+
+    console.log('choices', choices)
 
     const viewName = 'pages/results'
     const viewData = {
         app: process.env.NAME,
-        books: bookJson,
-        booksStringify: JSON.stringify(bookJson)
+        books: choices,
+        booksStringify: JSON.stringify(choices)
     }
 
     render.renderView(res, viewName, viewData)
+}
+
+exports.postResults = function(req, res) {
+    const choices = req.body.carouselChoices.split(',')
+    const allBooks = store.getCollection('./collection/books.json').results
+    const bookJson = getAllChoices(allBooks, choices)
+
+    const save = store.saveCollection('./collection/choices.json', bookJson)
+
+    // console.log('post', save)
+
+    const viewName = './overview'
+
+    res.redirect(viewName)
 }
 
 exports.details = function(req, res) {

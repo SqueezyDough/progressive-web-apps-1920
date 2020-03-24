@@ -3,6 +3,7 @@ const CORE_CACHE_NAME = `core-cache-v${CORE_CACHE}`
 const CORE_ASSETS = [
     '/',
     '/offline',
+    // '/results',
     '/dist/site.css',
 ]
 
@@ -26,8 +27,10 @@ self.addEventListener('activate', e => {
 self.addEventListener('fetch', e => {
     const fileType = e.request.destination
 
+    // console.log(e)
+
     // cache only strategy
-    if (isCoreGetRequest(e.request)) {
+    if (isCoreGetRequest(e.request))  {
         // open from cache
         e.respondWith(
             caches.open(CORE_CACHE_NAME)
@@ -64,7 +67,7 @@ function fetchAndCache(request, cacheName) {
 }
 
 function isCachedFileType(fileType) {
-    return ['image', 'font', 'manifest'].includes(fileType)
+    return ['image', 'font', 'script', 'manifest'].includes(fileType)
 }
 
 function buildUrl(req) {
@@ -73,15 +76,15 @@ function buildUrl(req) {
 }
 
 function isCoreGetRequest(request) {
-    return request.method === 'GET' && CORE_ASSETS.includes(getPathName(request.url));
+    return request.method === 'GET' && CORE_ASSETS.includes(getPathName(request.url))
 }
 
 function isFileGetRequest(request, fileType) {
-    return request.method === 'GET' && (request.headers.get('accept') !== null && request.destination.indexOf(`${fileType}`) > -1);
+    return request.method === 'GET' && (request.headers.get('accept') !== null && request.destination.indexOf(`${fileType}`) > -1)
 }
 
 function isHtmlGetRequest(request) {
-    return request.method === 'GET' && (request.headers.get('accept') !== null && request.headers.get('accept').indexOf('text/html') > -1);
+    return request.method === 'GET' && (request.headers.get('accept') !== null && request.headers.get('accept').indexOf('text/html') > -1)
 }
 
 function getPathName(requestUrl) {

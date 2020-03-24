@@ -5,10 +5,8 @@ exports.getCollection = function(path) {
 }
 
 exports.saveCollection = function(path, data) {
-    if (fs.existsSync(path)) {
-        const json = JSON.stringify(data);
-        fs.writeFileSync('./collection/books.json', json);
-    }
+    const json = JSON.stringify(data);
+    fs.writeFileSync(path, json);
 
     return data
 }
