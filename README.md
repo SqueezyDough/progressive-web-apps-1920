@@ -5,19 +5,22 @@
 * [Description](#Description)
 * [Prototype](#Prototype)
 * [API](#API)
+* [Progressive web apps](#pwa)
+* [Percieved performance](#perc-optim)
+* [Optimisation results](#optim-res)
+* [conclusion](#conclusion)
 * [Install](#Install)
 * [License](#License)
 
-
 <a name="Assignment"></a>
 # Assignment
-I've been tasked to create a single page webapp that helps children from 9-12 years old with their paper. This prototype uses the OBA API to fetch and display books and media from the OBA.
+In this course I will rework my client-side 'Book Bites' web app to a progressive web app. In this web app I will implement a service-worker and manifest file to give it an 'appy' feel. I also will improve this app's performance by analysing the CRP.
 
 ------
 
 <a name="Description"></a>
 # Description
-This web app focusses on the ideation phase for crating a paper. Based on a old dutch tradition known as koekhappen (cake bites), children can eat books of their liking. When they're done, they can go to a results page and see the book details.
+This web app focusses on the ideation phase for creating a paper. Based on a old dutch tradition known as koekhappen (cake bites), children can eat books of their liking. When they're done, they can go to a results page and see the book details.
 
 ------
 
@@ -67,6 +70,8 @@ I use the OBA API to load books from a specific category.
 
 ------
 
+<a name="pwa"></a>
+
 # Progressive Web App
 Progressive web apps brings functionality from native apps to the web. This allows user to have an offline experience, get push notifications, and information can be sychronised in the background. Achieving this would require a service worker to be implemented in your web app. You can also install the app on your dashboard or homescreen with a manifest file, but this is optional.
 
@@ -104,8 +109,8 @@ I use a simple black theme color and I don't force the app to be in either lands
 ```
 </details>
 
-## Install app 
-The manifest file and the ervice worker can work together, so you can install the app from thhe browser URL.
+### Install app 
+The manifest file and the service worker can work together, so you can install the app from thhe browser URL.
 <details>
 <summary>Image - install app</summary>
     
@@ -113,6 +118,8 @@ The manifest file and the ervice worker can work together, so you can install th
 </details>
 
 ______
+
+<a name="optim"></a>
 
 # Performance optimisation
 Web apps can be optimised by compressing and minimise critical files and prioritising some files over others so they won't be blocking.
@@ -318,6 +325,8 @@ Google Fonts is allowing caching for all their free fonts however and many web a
 
 ------
 
+<a name="perc-optim"></a>
+
 # Percieved performance optimisation
 ## Image reflow
 All images have a fixed height and width, so images which are not yet fully loaded do show a visible container and the structure of the page remains intact.
@@ -329,6 +338,8 @@ All images have a fixed height and width, so images which are not yet fully load
 </details>
 
 ------
+
+<a name="optim-res"></a>
 
 # Optimisation results
 My website has very few items on the screen. Only 5 images are loaded each time. Real websites have far more items. I decided to increase the amount of items 5 times (25 images in total) to get a more realistic picture.
@@ -379,7 +390,7 @@ Minifying CSS was a very minor optimisation. It will only remove comments and sp
 </details>
 
 ## Remove ETAG from headers
-Remeving ETAG gave me no noticable benefit.
+Removing ETAG gave me no noticable benefit.
 
 ------
 
@@ -416,6 +427,8 @@ All improvements improved the websites load time by `178%`, excluding caching fi
 The time to interact with the page has increased from 2.9s to 2.0s.
 
 ------
+
+<a name="conclusion"></a>
 
 # Conclusion
 > Je snapt het verschil tussen client side en server side renderen en kan server side rendering toepassen voor het tonen van data uit een API
