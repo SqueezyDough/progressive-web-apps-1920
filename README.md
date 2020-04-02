@@ -432,6 +432,7 @@ The service worker functions as a proxy between the server and the client, but `
 
 > Je begrijpt hoe de critical rendering path werkt, en hoe je deze kan optimaliseren.
 
+A short description from our friends at MDN.
 > The Critical Rendering Path is the sequence of steps the browser goes through to convert the HTML, CSS, and JavaScript into pixels on the screen. Optimizing the critical render path improves render performance. - [MDN](https://developer.mozilla.org/en-US/docs/Web/Performance/Critical_rendering_path)
 
 ------
