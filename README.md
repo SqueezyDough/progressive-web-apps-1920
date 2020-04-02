@@ -24,25 +24,29 @@ This web app focusses on the ideation phase for crating a paper. Based on a old 
 <a name="Prototype"></a>
 # Prototype
 
-## Prototype
-User click (eat) books via a carousel-like interface
+## Carousel
+User click (eat) books via a carousel-like interface.
+
 <details>
-    <summary>Image - Book bites carousel</summary>
-    ![](https://github.com/SqueezyDough/project-1-1920/blob/master/github/carousel.png?)
+  <summary>Image - Book bites carousel</summary>
+    
+  ![](https://github.com/SqueezyDough/project-1-1920/blob/master/github/carousel.png)
 </details>
 
 ## Overview
 All eaten books are displayed on an overview page.
 <details>
-    <summary>Image - Overview</summary>
-    ![](https://user-images.githubusercontent.com/33430653/78300368-aaf42700-7537-11ea-9b3d-af457febe667.png)
+  <summary>Image - Overview</summary>
+    
+  ![](https://user-images.githubusercontent.com/33430653/78300368-aaf42700-7537-11ea-9b3d-af457febe667.png)
 </details>
 
 ## Details
 The details page has basic book details. More book details can be viewed on the more info link.
 <details>
-    <summary>Image - Details</summary>
-    ![](https://user-images.githubusercontent.com/33430653/78300138-4fc23480-7537-11ea-8484-9028599a0db8.png)
+  <summary>Image - Details</summary>
+    
+  ![](https://user-images.githubusercontent.com/33430653/78300138-4fc23480-7537-11ea-8484-9028599a0db8.png)
 </details>
 
 ------
@@ -107,8 +111,9 @@ I use a simple black theme color and I don't force the app to be in either lands
 ## Install app 
 The manifest file and the ervice worker can work together, so you can install the app from thhe browser URL.
 <details>
-    <summary>Image - install app</summary>
-    ![](https://user-images.githubusercontent.com/33430653/78299882-e0e4db80-7536-11ea-88bd-1a2f8e849c13.png)
+<summary>Image - install app</summary>
+    
+![](https://user-images.githubusercontent.com/33430653/78299882-e0e4db80-7536-11ea-88bd-1a2f8e849c13.png)
 </details>
 
 ______
@@ -170,8 +175,9 @@ The solution is to add a hash to every html file (or at least the overview page)
 To speed up the load time I also fetch other file types. I wrote a function to handle this dynamically.
 
 <details>
-    <summary>Image - Cached files</summary>
-    ![](https://user-images.githubusercontent.com/33430653/78299382-10dfaf00-7536-11ea-978c-f60d8067e3f8.png)
+<summary>Image - Cached files</summary>
+    
+![](https://user-images.githubusercontent.com/33430653/78299382-10dfaf00-7536-11ea-978c-f60d8067e3f8.png)
 </details>
 
 <details>
@@ -319,8 +325,9 @@ Google Fonts is allowing caching for all their free fonts however and many web a
 All images have a fixed height and width, so images which are not yet fully loaded do show a visible container and the structure of the page remains intact.
 
 <details>
-    <summary> Image - Image reflow </summary>
-    ![](https://user-images.githubusercontent.com/33430653/78300015-18538800-7537-11ea-9e54-4e56e2dcb855.png)
+<summary> Image - Image reflow </summary>
+    
+![](https://user-images.githubusercontent.com/33430653/78300015-18538800-7537-11ea-9e54-4e56e2dcb855.png)
 </details>
 
 # Optimisation results
@@ -330,9 +337,10 @@ My website has very few items on the screen. Only 5 images are loaded each time.
 I started out without any optimisations. From here I enable each optimisation improvement to see its effect. The website scored a performance score of below 90's (sometimes 85-90) and the load time was just above `800ms`.
 
 <details>
-    <summary>Initial critical rendering path</summary>
-    ![](https://user-images.githubusercontent.com/33430653/78299395-13420900-7536-11ea-8d62-7f6c1191102c.png)
-    ![](https://user-images.githubusercontent.com/33430653/78300314-9021b280-7537-11ea-9fbe-90dfc0d53548.png)
+<summary>Initial critical rendering path</summary>
+    
+![](https://user-images.githubusercontent.com/33430653/78299395-13420900-7536-11ea-8d62-7f6c1191102c.png)
+![](https://user-images.githubusercontent.com/33430653/78300314-9021b280-7537-11ea-9fbe-90dfc0d53548.png)
 </details>
 
 ## Minify HTML
@@ -350,18 +358,20 @@ I've used the `express-minify-html-2` npm package with these settings:
 ```
 
 <details>
-    <summary>Image - HTML load time</summary>
-    ![](https://user-images.githubusercontent.com/33430653/78299391-13420900-7536-11ea-96a8-95e748dcf992.png)  
-    ![](https://user-images.githubusercontent.com/33430653/78299393-13420900-7536-11ea-880e-d75934a22a0c.png)
+<summary>Image - HTML load time</summary>
+    
+![](https://user-images.githubusercontent.com/33430653/78299391-13420900-7536-11ea-96a8-95e748dcf992.png)  
+![](https://user-images.githubusercontent.com/33430653/78299393-13420900-7536-11ea-880e-d75934a22a0c.png)
 </details>
 
 ## MinifyCSS
 Minifying CSS was a very minor optimisation. It will only remove comments and spaces. It merely decreased its package size by 1KB. Although it's certainnly important for large websites, a website like this won't get any noticable benefit form it. Notheless I did notice another 100ms decrease in load time, but I assume this is a variable not an improvement.
 
 <details>
-    <summary>Image - CSS load time</summary>
-    ![](https://user-images.githubusercontent.com/33430653/78299388-12a97280-7536-11ea-82d1-3d0725f95194.png)
-    ![](https://user-images.githubusercontent.com/33430653/78299389-12a97280-7536-11ea-8656-c86c0ec670f7.png) 
+<summary>Image - CSS load time</summary>
+    
+![](https://user-images.githubusercontent.com/33430653/78299388-12a97280-7536-11ea-82d1-3d0725f95194.png)
+![](https://user-images.githubusercontent.com/33430653/78299389-12a97280-7536-11ea-8656-c86c0ec670f7.png) 
 </details>
 
 ## Remove ETAG from headers
@@ -372,17 +382,19 @@ Adding compression did al lot to bring the load time down. Most files are loaded
 It also decreased the localhost response size significantly from 15.5KB to 1.5KB.
 
 <details>
-    <summary>Image - Compression load time</summary>
-    ![](https://user-images.githubusercontent.com/33430653/78299386-11784580-7536-11ea-8c26-021276ddd4d6.png)
-    ![](https://user-images.githubusercontent.com/33430653/78299387-1210dc00-7536-11ea-839b-4d2b351a294b.png)
+<summary>Image - Compression load time</summary>
+    
+![](https://user-images.githubusercontent.com/33430653/78299386-11784580-7536-11ea-8c26-021276ddd4d6.png)
+![](https://user-images.githubusercontent.com/33430653/78299387-1210dc00-7536-11ea-839b-4d2b351a294b.png)
 </details>
 
 ## Caching files
 It is expected thhat caching files will do the most to your load time. When critical files are cached the page loads within 40ms.
 
 <details>
-    <summary>Image - load time</summary>
-    ![](https://user-images.githubusercontent.com/33430653/78299384-10dfaf00-7536-11ea-9276-85bcb555add8.png)
+<summary>Image - load time</summary>
+
+![](https://user-images.githubusercontent.com/33430653/78299384-10dfaf00-7536-11ea-9276-85bcb555add8.png)
 </details>
 
 ## End results       
