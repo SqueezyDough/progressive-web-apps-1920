@@ -233,14 +233,14 @@ Other sources confirm the importance of storing webfonts as well.
 <details>
 <summary>Sources about the importance of caching webfonts</summary>
 
-"Proper caching is a must
-If your web application uses a service worker, serving font resources with  a cache-first strategy is appropriate for most use cases. You should not | store fonts using localStorage or IndexedDB; each of those has its own set of performance issues."
+> Proper caching is a must
+If your web application uses a service worker, serving font resources with  a cache-first strategy is appropriate for most use cases. You should not | store fonts using localStorage or IndexedDB; each of those has its own set of performance issues.
 
 Source: [developers.google.com](https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/webfont-optimization)
 
-"Since fonts are static resources that aren’t frequently updated, they can be cached locally in the browser, saving users having to download your fonts again the next time they access your site. This way, the amount of data the user’s browser has to download, as well as the number of HTTP requests, are reduced."
+> Since fonts are static resources that aren’t frequently updated, they can be cached locally in the browser, saving users having to download your fonts again the next time they access your site. This way, the amount of data the user’s browser has to download, as well as the number of HTTP requests, are reduced.
 
-"Google’s Web Fundamentals guide recommends making sure your servers provide a long-lived max-age timestamp and a revalidation token to allow for efficient font reuse between different pages on your site."
+> Google’s Web Fundamentals guide recommends making sure your servers provide a long-lived max-age timestamp and a revalidation token to allow for efficient font reuse between different pages on your site.
 
 Source: [WP Rocket](https://wp-rocket.me/blog/guide-web-font-optimization/)
 
@@ -267,10 +267,10 @@ Source: [Smashing magazine](https://www.smashingmagazine.com/2019/06/optimizing-
 
 If you choose to self-host a font this is also allowed by Google, but again other distributors might handle this differently. From my research it's hard to find caching mentioned explicitly in most EULA's. [House Industries](https://houseind.com/license/) is mentioning it however, but [Microsoft](https://docs.microsoft.com/en-us/typography/fonts/font-faq) is only mentioning the restriction of redistribution. Since caching can be viewed as redistribution / copying it can be assumed that caching is not allowed, but further clarifications by Microsoft and other distributers might be necessary.
 
-"The Licensed Software may not be copied or duplicated in any form except for storage or caching as may temporarily occur during proper use of the Licensed Software, and, optionally, a single copy solely for backup purposes. The Licensed Software and its related documentation may not be resold, rented, leased, sublicensed or lent to another person or entity."
+> The Licensed Software may not be copied or duplicated in any form except for storage or caching as may temporarily occur during proper use of the Licensed Software, and, optionally, a single copy solely for backup purposes. The Licensed Software and its related documentation may not be resold, rented, leased, sublicensed or lent to another person or entity.
 
 #### Conclusion
-When caching fonts the general rules for using fonts applies. The font should either be free for personal / commercial use or you have to pay a license fee. Caching fonts is the same as redistribution / copying fonts on other computers. If the license doesn't mention explicitly that caching is excluded from that rule, the distribution restriction should be followed, and therefore fonts should NOT be cached without risking a fine. 
+When caching fonts the general rules for using fonts still apply. The font should either be free for personal / commercial use or you have to pay a license fee. Caching fonts is the same as redistribution / copying fonts on other computers. If the license doesn't mention explicitly that caching is excluded from that rule, the distribution restriction should be followed, and therefore fonts should NOT be cached without risking a fine. 
 
 Google Fonts is allowing caching for all their free fonts however and many web articles verify the importance of caching webfonts to improve the overall performance of your webapp. So if you want to play it safe, use Google fonts.
 
