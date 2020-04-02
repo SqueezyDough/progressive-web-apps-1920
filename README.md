@@ -27,11 +27,7 @@ This web app focusses on the ideation phase for crating a paper. Based on a old 
 ## Carousel
 User click (eat) books via a carousel-like interface.
 
-<details>
-  <summary>Image - Book bites carousel</summary>
-    
-  ![](https://github.com/SqueezyDough/project-1-1920/blob/master/github/carousel.png)
-</details>
+![](https://github.com/SqueezyDough/project-1-1920/blob/master/github/carousel.png)
 
 ## Overview
 All eaten books are displayed on an overview page.
@@ -320,6 +316,8 @@ When caching fonts the general rules for using fonts still apply. The font shoul
 
 Google Fonts is allowing caching for all their free fonts however and many web articles verify the importance of caching webfonts to improve the overall performance of your webapp. So if you want to play it safe, use Google fonts.
 
+------
+
 # Percieved performance optimisation
 ## Image reflow
 All images have a fixed height and width, so images which are not yet fully loaded do show a visible container and the structure of the page remains intact.
@@ -329,6 +327,8 @@ All images have a fixed height and width, so images which are not yet fully load
     
 ![](https://user-images.githubusercontent.com/33430653/78300015-18538800-7537-11ea-9e54-4e56e2dcb855.png)
 </details>
+
+------
 
 # Optimisation results
 My website has very few items on the screen. Only 5 images are loaded each time. Real websites have far more items. I decided to increase the amount of items 5 times (25 images in total) to get a more realistic picture.
@@ -342,6 +342,8 @@ I started out without any optimisations. From here I enable each optimisation im
 ![](https://user-images.githubusercontent.com/33430653/78299395-13420900-7536-11ea-8d62-7f6c1191102c.png)
 ![](https://user-images.githubusercontent.com/33430653/78300314-9021b280-7537-11ea-9fbe-90dfc0d53548.png)
 </details>
+
+------
 
 ## Minify HTML
  Minifying HTML bumped up the score a bit and reduced the file size by about 8KB. I saw a decrease in load time of about 150ms, bringing it form 800ms+ to 650ms+.
@@ -364,6 +366,8 @@ I've used the `express-minify-html-2` npm package with these settings:
 ![](https://user-images.githubusercontent.com/33430653/78299393-13420900-7536-11ea-880e-d75934a22a0c.png)
 </details>
 
+------
+
 ## MinifyCSS
 Minifying CSS was a very minor optimisation. It will only remove comments and spaces. It merely decreased its package size by 1KB. Although it's certainnly important for large websites, a website like this won't get any noticable benefit form it. Notheless I did notice another 100ms decrease in load time, but I assume this is a variable not an improvement.
 
@@ -377,6 +381,8 @@ Minifying CSS was a very minor optimisation. It will only remove comments and sp
 ## Remove ETAG from headers
 Remeving ETAG gave me no noticable benefit.
 
+------
+
 ## Add GZIP compression
 Adding compression did al lot to bring the load time down. Most files are loaded in 450ms, which is half the time then when no optimasation was applied.
 It also decreased the localhost response size significantly from 15.5KB to 1.5KB.
@@ -384,9 +390,12 @@ It also decreased the localhost response size significantly from 15.5KB to 1.5KB
 <details>
 <summary>Image - Compression load time</summary>
     
+![](https://user-images.githubusercontent.com/33430653/78299387-1210dc00-7536-11ea-839b-4d2b351a294b.png) 
 ![](https://user-images.githubusercontent.com/33430653/78299386-11784580-7536-11ea-8c26-021276ddd4d6.png)
-![](https://user-images.githubusercontent.com/33430653/78299387-1210dc00-7536-11ea-839b-4d2b351a294b.png)
+
 </details>
+
+------
 
 ## Caching files
 It is expected thhat caching files will do the most to your load time. When critical files are cached the page loads within 40ms.
@@ -397,10 +406,14 @@ It is expected thhat caching files will do the most to your load time. When crit
 ![](https://user-images.githubusercontent.com/33430653/78299384-10dfaf00-7536-11ea-9276-85bcb555add8.png)
 </details>
 
+------
+
 ## End results       
 ![](https://user-images.githubusercontent.com/33430653/78299379-0f15eb80-7536-11ea-89d0-671c65ae1f8a.png)
 
 All improvements improved the websites load time by `178%`, excluding caching files. With file caching enabled the website is over `2000%` faster then without any applied optimisation.
+
+------
 
 <a name="License"></a>
 # License
