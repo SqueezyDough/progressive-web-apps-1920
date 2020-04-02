@@ -8,7 +8,7 @@
 * [Progressive web app](#pwa)
 * [Percieved performance optimisation](#perc-optim)
 * [Optimisation results](#optim-res)
-* [conclusion](#conclusion)
+* [conclusion](#conc)
 * [Install](#Install)
 * [License](#License)
 
@@ -428,7 +428,7 @@ The time to interact with the page has increased from 2.9s to 2.0s.
 
 ------
 
-<a name="conclusion"></a>
+<a name="conc"></a>
 
 # Conclusion
 > Je snapt het verschil tussen client side en server side renderen en kan server side rendering toepassen voor het tonen van data uit een API
