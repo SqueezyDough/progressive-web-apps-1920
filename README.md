@@ -6,8 +6,6 @@
 * [Prototype](#Prototype)
 * [API](#API)
 * [Install](#Install)
-* * [Clone repository](#Clone-repo)
-* * [Usage](#Usage)
 * [License](#License)
 
 
@@ -43,11 +41,25 @@ This webapp focusses on the ideation phase for crating a paper. Based on a old d
 I use the OBA API to load books from a specific category.
 
 ------
+
+<a name="Install"></a>
+# Install Notes
+## Clone repository
+`git clone https://github.com/SqueezyDough/.git`
+
+## Install packages
+`npm run install`
+
+## Usage
+`npm run start`
+
+------
+
 # Progressive Web App
 Progressive web apps brings functionality from native apps to the web. This allows user to have an offline experience, get push notifications, and information can be sychronised in the background. Achieving this would require a service worker to be implemented in your web app. You can also install the app on your dashboard or homescreen with a manifest file, but this is optional.
 
 ## Service worker
-Service workers allow your web app to behave like a native app.
+Service workers allow your web app to behave like a native app. 
 
 ## Manifest
 To make an app feel like it's an app you'll want it on your homescreen or dashboard. With a manifest file you can make your web app installable.
@@ -253,7 +265,7 @@ Google fonts are already cached if you use a link instead of downloading it for 
 
 Source: [Smashing magazine](https://www.smashingmagazine.com/2019/06/optimizing-google-fonts-performance/)
 
-If you choose to self-host a font this is also allowed by Google, but again other distributors might handle this differently. From my research it's hard to find caching mentioned explicitly in most EULA's. [House Industries](https://houseind.com/license/) is mentioning it however, but [Microsof](https://docs.microsoft.com/en-us/typography/fonts/font-faq) is only mentioning the restriction of redistribution. Since caching can be viewed as redistribution / copying it can be assumed that caching is not allowed, but further clarifications by Microsoft and other distributers might be necessary.
+If you choose to self-host a font this is also allowed by Google, but again other distributors might handle this differently. From my research it's hard to find caching mentioned explicitly in most EULA's. [House Industries](https://houseind.com/license/) is mentioning it however, but [Microsoft](https://docs.microsoft.com/en-us/typography/fonts/font-faq) is only mentioning the restriction of redistribution. Since caching can be viewed as redistribution / copying it can be assumed that caching is not allowed, but further clarifications by Microsoft and other distributers might be necessary.
 
 "The Licensed Software may not be copied or duplicated in any form except for storage or caching as may temporarily occur during proper use of the Licensed Software, and, optionally, a single copy solely for backup purposes. The Licensed Software and its related documentation may not be resold, rented, leased, sublicensed or lent to another person or entity."
 
@@ -263,15 +275,6 @@ When caching fonts the general rules for using fonts applies. The font should ei
 Google Fonts is allowing caching for all their free fonts however and many web articles verify the importance of caching webfonts to improve the overall performance of your webapp. So if you want to play it safe, use Google fonts.
 
 
-<a name="Install"></a>
-# Install
-<a name="Clone-repo"></a>
-## Clone repository
-`git clone https://github.com/SqueezyDough/project-1-1920.git`
-
-<a name="Usage"></a>
-## Usage
-`Run index.html with live server`
 
 <a name="License"></a>
 # License
