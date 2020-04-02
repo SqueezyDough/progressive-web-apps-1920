@@ -26,7 +26,6 @@ This web app focusses on the ideation phase for creating a paper. Based on a old
 
 <a name="Prototype"></a>
 # Prototype
-
 ## Carousel
 User click (eat) books via a carousel-like interface.
 
@@ -315,7 +314,6 @@ If you choose to self-host a font this is also allowed by Google, but again othe
 
 [Microsoft](https://docs.microsoft.com/en-us/typography/fonts/font-faq) is only mentioning the restriction of redistribution. Since caching can be viewed as redistribution / copying it can be assumed that caching is not allowed, but further clarifications by Microsoft and other distributers might be necessary.
 
-
 ------
 
 #### Conclusion
@@ -357,7 +355,7 @@ I started out without any optimisations. From here I enable each optimisation im
 ------
 
 ## Minify HTML
- Minifying HTML bumped up the score a bit and reduced the file size by about 8KB. I saw a decrease in load time of about 150ms, bringing it form 800ms+ to 650ms+.
+Minifying HTML bumped up the score a bit and reduced the file size by about 8KB. I saw a decrease in load time of about 150ms, bringing it form 800ms+ to 650ms+.
 
 I've used the `express-minify-html-2` npm package with these settings:
 
@@ -380,7 +378,7 @@ I've used the `express-minify-html-2` npm package with these settings:
 ------
 
 ## MinifyCSS
-Minifying CSS was a very minor optimisation. It will only remove comments and spaces. It merely decreased its package size by 1KB. Although it's certainnly important for large websites, a website like this won't get any noticable benefit form it. Notheless I did notice another 100ms decrease in load time, but I assume this is a variable not an improvement.
+Minifying CSS was a very minor optimisation. It will only remove comments and spaces. It merely decreased its package size by 1KB. Although it's certainly important for large websites, a website like this won't get any noticable benefit form it. Nontheless I did notice another 100ms decrease in load time, but I assume this is a variable not an improvement.
 
 <details>
 <summary>Image - CSS load time</summary>
@@ -395,7 +393,7 @@ Removing ETAG gave me no noticable benefit.
 ------
 
 ## Add GZIP compression
-Adding compression did al lot to bring the load time down. Most files are loaded in 450ms, which is half the time then when no optimasation was applied.
+Adding compression did al lot to bring the load time down. Most files are loaded in 450ms, which is half the time then when no optimisation was applied.
 It also decreased the localhost response size significantly from 15.5KB to 1.5KB.
 
 <details>
@@ -409,7 +407,7 @@ It also decreased the localhost response size significantly from 15.5KB to 1.5KB
 ------
 
 ## Caching files
-It is expected thhat caching files will do the most to your load time. When critical files are cached the page loads within 40ms.
+It is expected that caching files will do the most to your load time. When critical files are cached the page loads within 40ms.
 
 <details>
 <summary>Image - caching load time</summary>
