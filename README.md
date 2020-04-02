@@ -5,11 +5,11 @@
 * [Description](#Description)
 * [Prototype](#Prototype)
 * [API](#API)
+* [Install notes](#Install)
 * [Progressive web app](#pwa)
 * [Percieved performance optimisation](#perc-optim)
 * [Optimisation results](#optim-res)
 * [Conclusion](#conc)
-* [Install](#Install)
 * [License](#License)
 
 <a name="Assignment"></a>
