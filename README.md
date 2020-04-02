@@ -377,7 +377,7 @@ I've used the `express-minify-html-2` npm package with these settings:
 
 ------
 
-## MinifyCSS
+## Minify CSS
 Minifying CSS was a very minor optimisation. It will only remove comments and spaces. It merely decreased its package size by 1KB. Although it's certainly important for large websites, a website like this won't get any noticable benefit form it. Nontheless I did notice another 100ms decrease in load time, but I assume this is a variable not an improvement.
 
 <details>
