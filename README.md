@@ -437,7 +437,7 @@ A short description from our friends at MDN.
 
 ------
 
-Most ideally, the browser handles the most critical files first, so unnecessary files won't block the rendering path.
+Most ideally, the browser handles the most critical files first, so unnecessary files won't block the rendering path and meaningful content is loaded first.
 The critical rendering path contains a few stages:
 
 #### Time to first byte
