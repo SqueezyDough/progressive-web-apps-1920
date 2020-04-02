@@ -3,7 +3,6 @@ const CORE_CACHE_NAME = `core-cache-v${CORE_CACHE}`
 const CORE_ASSETS = [
     '/',
     '/offline',
-    // '/results',
     '/dist/site.css',
 ]
 
