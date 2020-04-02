@@ -35,14 +35,14 @@ User click (eat) books via a carousel-like interface
 All eaten books are displayed on an overview page.
 <details>
     <summary>Image - Overview</summary>
-    ![img2](https://user-images.githubusercontent.com/33430653/78300368-aaf42700-7537-11ea-9b3d-af457febe667.png)
+    ![](https://user-images.githubusercontent.com/33430653/78300368-aaf42700-7537-11ea-9b3d-af457febe667.png)
 </details>
 
 ## Details
 The details page has basic book details. More book details can be viewed on the more info link.
 <details>
     <summary>Image - Details</summary>
-    ![details](https://user-images.githubusercontent.com/33430653/78300138-4fc23480-7537-11ea-8484-9028599a0db8.png)
+    ![](https://user-images.githubusercontent.com/33430653/78300138-4fc23480-7537-11ea-8484-9028599a0db8.png)
 </details>
 
 ------
@@ -108,7 +108,7 @@ I use a simple black theme color and I don't force the app to be in either lands
 The manifest file and the ervice worker can work together, so you can install the app from thhe browser URL.
 <details>
     <summary>Image - install app</summary>
-    ![install](https://user-images.githubusercontent.com/33430653/78299882-e0e4db80-7536-11ea-88bd-1a2f8e849c13.png)
+    ![](https://user-images.githubusercontent.com/33430653/78299882-e0e4db80-7536-11ea-88bd-1a2f8e849c13.png)
 </details>
 
 ______
@@ -171,7 +171,7 @@ To speed up the load time I also fetch other file types. I wrote a function to h
 
 <details>
     <summary>Image - Cached files</summary>
-    ![sw2](https://user-images.githubusercontent.com/33430653/78299382-10dfaf00-7536-11ea-978c-f60d8067e3f8.png)
+    ![](https://user-images.githubusercontent.com/33430653/78299382-10dfaf00-7536-11ea-978c-f60d8067e3f8.png)
 </details>
 
 <details>
@@ -250,7 +250,7 @@ function buildUrl(req) {
 ### Web fonts cache
 Another idea I had is to cache web fonts. As with images, loading web fonts can be a heavy task, since they have to load seperately. Caching them makes sense because fonts aren't updated frequently.
 
-I've cached fonts the same way I do with other file types. As you could've seen above, I look for different file types, includinng fonts
+I've cached fonts the same way I do with other file types. As you could've seen above, I look for different file types, including fonts
 
 ```
 function isCachedFileType(fileType) {
@@ -320,7 +320,7 @@ All images have a fixed height and width, so images which are not yet fully load
 
 <details>
     <summary> Image - Image reflow </summary>
-    ![img](https://user-images.githubusercontent.com/33430653/78300015-18538800-7537-11ea-9e54-4e56e2dcb855.png)
+    ![](https://user-images.githubusercontent.com/33430653/78300015-18538800-7537-11ea-9e54-4e56e2dcb855.png)
 </details>
 
 # Optimisation results
@@ -331,8 +331,8 @@ I started out without any optimisations. From here I enable each optimisation im
 
 <details>
     <summary>Initial critical rendering path</summary>
-    ![ssr2](https://user-images.githubusercontent.com/33430653/78299395-13420900-7536-11ea-8d62-7f6c1191102c.png)
-    ![ssr1](https://user-images.githubusercontent.com/33430653/78300314-9021b280-7537-11ea-9fbe-90dfc0d53548.png)
+    ![](https://user-images.githubusercontent.com/33430653/78299395-13420900-7536-11ea-8d62-7f6c1191102c.png)
+    ![](https://user-images.githubusercontent.com/33430653/78300314-9021b280-7537-11ea-9fbe-90dfc0d53548.png)
 </details>
 
 ## Minify HTML
@@ -351,8 +351,8 @@ I've used the `express-minify-html-2` npm package with these settings:
 
 <details>
     <summary>Image - HTML load time</summary>
-    ![html2](https://user-images.githubusercontent.com/33430653/78299391-13420900-7536-11ea-96a8-95e748dcf992.png)  
-    ![html1](https://user-images.githubusercontent.com/33430653/78299393-13420900-7536-11ea-880e-d75934a22a0c.png)
+    ![](https://user-images.githubusercontent.com/33430653/78299391-13420900-7536-11ea-96a8-95e748dcf992.png)  
+    ![](https://user-images.githubusercontent.com/33430653/78299393-13420900-7536-11ea-880e-d75934a22a0c.png)
 </details>
 
 ## MinifyCSS
@@ -360,8 +360,8 @@ Minifying CSS was a very minor optimisation. It will only remove comments and sp
 
 <details>
     <summary>Image - CSS load time</summary>
-    ![css2](https://user-images.githubusercontent.com/33430653/78299388-12a97280-7536-11ea-82d1-3d0725f95194.png)
-    ![css1](https://user-images.githubusercontent.com/33430653/78299389-12a97280-7536-11ea-8656-c86c0ec670f7.png) 
+    ![](https://user-images.githubusercontent.com/33430653/78299388-12a97280-7536-11ea-82d1-3d0725f95194.png)
+    ![](https://user-images.githubusercontent.com/33430653/78299389-12a97280-7536-11ea-8656-c86c0ec670f7.png) 
 </details>
 
 ## Remove ETAG from headers
@@ -373,8 +373,8 @@ It also decreased the localhost response size significantly from 15.5KB to 1.5KB
 
 <details>
     <summary>Image - Compression load time</summary>
-    ![gzip2](https://user-images.githubusercontent.com/33430653/78299386-11784580-7536-11ea-8c26-021276ddd4d6.png)
-    ![gzip1](https://user-images.githubusercontent.com/33430653/78299387-1210dc00-7536-11ea-839b-4d2b351a294b.png)
+    ![](https://user-images.githubusercontent.com/33430653/78299386-11784580-7536-11ea-8c26-021276ddd4d6.png)
+    ![](https://user-images.githubusercontent.com/33430653/78299387-1210dc00-7536-11ea-839b-4d2b351a294b.png)
 </details>
 
 ## Caching files
@@ -382,11 +382,11 @@ It is expected thhat caching files will do the most to your load time. When crit
 
 <details>
     <summary>Image - load time</summary>
-    ![sw1](https://user-images.githubusercontent.com/33430653/78299384-10dfaf00-7536-11ea-9276-85bcb555add8.png)
+    ![](https://user-images.githubusercontent.com/33430653/78299384-10dfaf00-7536-11ea-9276-85bcb555add8.png)
 </details>
 
 ## End results       
-![res1](https://user-images.githubusercontent.com/33430653/78299379-0f15eb80-7536-11ea-89d0-671c65ae1f8a.png)
+![](https://user-images.githubusercontent.com/33430653/78299379-0f15eb80-7536-11ea-89d0-671c65ae1f8a.png)
 
 All improvements improved the websites load time by `178%`, excluding caching files. With file caching enabled the website is over `2000%` faster then without any applied optimisation.
 
