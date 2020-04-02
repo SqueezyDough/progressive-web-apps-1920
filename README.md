@@ -23,15 +23,25 @@ This web app focusses on the ideation phase for crating a paper. Based on a old 
 
 <a name="Prototype"></a>
 # Prototype
-## Book bites
-![](https://github.com/SqueezyDough/project-1-1920/blob/master/github/carousel.png?)
+
+## Prototype
+User click (eat) books via a carousel-like interface
+<details>
+    <summary>Image - Book bites carousel</summary>
+    ![](https://github.com/SqueezyDough/project-1-1920/blob/master/github/carousel.png?)
+</details>
 
 ## Overview
-![](https://github.com/SqueezyDough/project-1-1920/blob/master/github/res1.png?)
-![](https://github.com/SqueezyDough/project-1-1920/blob/master/github/res2.png?)
+All eaten books are displayed on an overview page.
+<details>
+    <summary>Image - Overview</summary>
+</details>
 
 ## Details
-# IMAGE HERE
+The details page has basic book details. More book details can be viewed on the more info link.
+<details>
+    <summary>Image - Details</summary>
+</details>
 
 ------
 
@@ -45,7 +55,7 @@ I use the OBA API to load books from a specific category.
 <a name="Install"></a>
 # Install Notes
 ## Clone repository
-`git clone https://github.com/SqueezyDough/.git`
+`git clone https://github.com/SqueezyDough/progressive-web-apps-1920.git`
 
 ## Install packages
 `npm run install`
@@ -59,7 +69,7 @@ I use the OBA API to load books from a specific category.
 Progressive web apps brings functionality from native apps to the web. This allows user to have an offline experience, get push notifications, and information can be sychronised in the background. Achieving this would require a service worker to be implemented in your web app. You can also install the app on your dashboard or homescreen with a manifest file, but this is optional.
 
 ## Service worker
-Service workers allow your web app to behave like a native app. 
+Service workers function as a proxy that controls how the requests in your web app are handled. My service worker dynamically caches files and precaches CORE files.
 
 ## Manifest
 To make an app feel like it's an app you'll want it on your homescreen or dashboard. With a manifest file you can make your web app installable.
@@ -95,30 +105,28 @@ I use a simple black theme color and I don't force the app to be in either lands
 ______
 
 # Performance optimisation
-
-## NPM
+Web apps can be optimised by compressing and minimise critical files and prioritising some files over others so they won't be blocking.
 
 ## Loading JS Files
 I load all javascript files ont he bottom on the page to make them `non-blocking`. Additionally, javascript that only affects one specific page is only included in that page. This decreases the page load for other pages.
 
 ## Minifying CSS
-I minify my CSS files to decrease file size using gulp. SCSS files are stored in a separate dev folder so the browser does not have to fetch them while they are practically useless for the browser.
+CSS files are minified before being served to decrease overall file size using gulp. SCSS files are stored in a separate dev folder so the browser does not have to fetch them while they are practically useless for the browser.
 
 ## Minifying HTML
-# IMAGE HERE
+HTML files are minified before being served to decrease overall using `express-minify-html` package.
 
-## Compressing
+## GZIP Compressing
+I use GZIP to decrease the size of the JSON response body.
 
 ## Disabling ETAG
-# DISCRIPTION
+I disable ETAG from my headers so the server doesn't compare each tag which would lead to excecuting more requests.
+
 ```
  app.set('etag', false)
 ```
 
-## Image reflow
-
 ## Service worker caching
-
 ### Precaching
 My service worker precaches the homepage, offline page and css file. These files are important to load the first page.
 
@@ -232,7 +240,7 @@ function buildUrl(req) {
 ------
 
 ### Web fonts cache
-Another idea I had is to cache web fonts. As with images, loading web fonts can be a heavy task, since they have to load seperately. Caching them makes sense because fonts aren't updated frequently. 
+Another idea I had is to cache web fonts. As with images, loading web fonts can be a heavy task, since they have to load seperately. Caching them makes sense because fonts aren't updated frequently.
 
 I've cached fonts the same way I do with other file types. As you could've seen above, I look for different file types, includinng fonts
 
@@ -294,11 +302,65 @@ If you choose to self-host a font this is also allowed by Google, but again othe
 ------
 
 #### Conclusion
-When caching fonts the general rules for using fonts still apply. The font should either be free for personal / commercial use or you have to pay a license fee. Caching fonts is the same as redistribution / copying fonts on other computers. If the license doesn't mention explicitly that caching is excluded from that rule, the distribution restriction should be followed, and therefore fonts should NOT be cached without risking a fine. 
+When caching fonts the general rules for using fonts still apply. The font should either be free for personal / commercial use or you have to pay a license fee. Caching fonts is the same as redistribution / copying fonts on other computers. If the license doesn't mention explicitly that caching is excluded from that rule, the distribution restriction should be followed, and therefore fonts should NOT be cached without risking a fine.
 
 Google Fonts is allowing caching for all their free fonts however and many web articles verify the importance of caching webfonts to improve the overall performance of your webapp. So if you want to play it safe, use Google fonts.
 
+# Percieved performance optimisation
+## Image reflow
+All images have a fixed height and width, so images which are not yet fully loaded do show a visible container and the structure of the page remains intact.
 
+# Optimisation results
+My website has very few items on the screen. Only 5 images are loaded each time. Real websites have far more items. I decided to increase the amount of items 5 times (25 images in total) to get a more realistic picture.
+
+## Server side rendering
+I started out without any optimisations. From here I enable each optimisation improvement to see its effect. The website scored a performance score of below 90's (sometimes 85-90) and the load time was just above `800ms`.
+
+<details>
+    <summary> </summary>
+</details>
+
+## Minify HTML
+ Minifying HTML bumped up the score a bit and reduced the file size by about 8KB. I saw a decrease in load time of about 150ms, bringing it form 800ms+ to 650ms+.
+
+I've used the `express-minify-html-2` npm package with these settings:
+
+```
+    removeComments: true,
+    collapseWhitespace: true,
+    collapseBooleanAttributes: true,
+    removeAttributeQuotes: true,
+    removeEmptyAttributes: true,
+    minifyJS: true
+```
+
+<details>
+    <summary> </summary>
+</details>
+
+## MinifyCSS
+Minifying CSS was a very minor optimisation. It will only remove comments and spaces. It merely decreased its package size by 1KB. Although it's certainnly important for large websites, a website like this won't get any noticable benefit form it. Notheless I did notice another 100ms decrease in load time, but I assume this is a variable not an improvement.
+
+<details>
+    <summary> </summary>
+</details>
+
+## Remove ETAG from headers
+Remeving ETAG gave me no noticable benefit.
+
+## Add GZIP compression
+Adding compression did al lot to bring the load time down. Most files are loaded in 450ms, which is half the time then when no optimasation was applied.
+It also decreased the localhost response size significantly from 15.5KB to 1.5KB.
+
+<details>
+    <summary> </summary>
+</details>
+
+## Caching files
+It is expected thhat caching files will do the most to your load time. When critical files are cached the page loads within 40ms.
+
+## Conclusion
+All improvements improved the websites load time by `178%`, excluding caching files. With file caching enabled the website is over `2000%` faster then without any applied optimisation.
 
 <a name="License"></a>
 # License
