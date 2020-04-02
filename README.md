@@ -130,10 +130,12 @@ const CORE_ASSETS = [
 ]
 ```
 
+------
+
 ### Caching all visited pages
 Next, I cache all visited pages to provide an (Semi-)offline fallback when the internet connection says 'goodbye'. I do this dynamically using a different cache for every filetype.
 
-
+------
 
 #### Known Issue and how to solve it
 #### The issue
@@ -146,6 +148,8 @@ The overview page displays all your current choices. Because this is dynamic the
 The solution is to add a hash to every html file (or at least the overview page). When a new version of the page is available the service worker will compare these hashes. When they are different the service worker will replace the old page with the new one.
 
 *Due to time constraints I sadly couldn't implement this feature.
+
+------
 
 ### Caching other filetypes
 To speed up the load time I also fetch other file types. I wrote a function to handle this dynamically.
@@ -192,7 +196,10 @@ To speed up the load time I also fetch other file types. I wrote a function to h
     ```
 </details>
 
+------
+
 ### Problems with caching images
+#### The issue
 OBA's API has a problem when fetching images. When fetching server side, you don't need CORS and you need to use `trim()` to remove spaces. When fetching client-side you do need CORS however and this is where our problem begins.
 
 My function sees an object of type `image` and says 'Good, let's cache that the usual way', however this image in particular fetches it from the OBA API and therefore requires CORS. Other file types that are stored on the server itself do NOT require CORS however. This means I need another function to check if this object requires CORS.
@@ -222,9 +229,12 @@ function buildUrl(req) {
 
 </details>
 
+------
 
 ### Web fonts cache
 Another idea I had is to cache web fonts. As with images, loading web fonts can be a heavy task, since they have to load seperately and aren't updated frequently.
+
+------
 
 #### What the internet is saying
 
@@ -246,6 +256,8 @@ Source: [WP Rocket](https://wp-rocket.me/blog/guide-web-font-optimization/)
 
 </details>
 
+------
+
 #### Licenses
 But is it allowed to cache fonts on your user's computer? It's hard to give a definite answer, since font licenses might vary per distributor / creator, but here's a quick overview.
 
@@ -260,6 +272,8 @@ Sources:
 * [Microsoft font FAQ](https://docs.microsoft.com/en-us/typography/fonts/font-faq)
 * [Dafont FAQ](https://www.dafont.com/faq.php#copyright)
 
+------
+
 ##### Caching
 Google fonts are already cached if you use a link instead of downloading it for a whole year. This also means if you visit a page which also uses a cached font, it doesn't need to download again.
 
@@ -268,6 +282,8 @@ Source: [Smashing magazine](https://www.smashingmagazine.com/2019/06/optimizing-
 If you choose to self-host a font this is also allowed by Google, but again other distributors might handle this differently. From my research it's hard to find caching mentioned explicitly in most EULA's. [House Industries](https://houseind.com/license/) is mentioning it however, but [Microsoft](https://docs.microsoft.com/en-us/typography/fonts/font-faq) is only mentioning the restriction of redistribution. Since caching can be viewed as redistribution / copying it can be assumed that caching is not allowed, but further clarifications by Microsoft and other distributers might be necessary.
 
 > The Licensed Software may not be copied or duplicated in any form except for storage or caching as may temporarily occur during proper use of the Licensed Software, and, optionally, a single copy solely for backup purposes. The Licensed Software and its related documentation may not be resold, rented, leased, sublicensed or lent to another person or entity.
+
+------
 
 #### Conclusion
 When caching fonts the general rules for using fonts still apply. The font should either be free for personal / commercial use or you have to pay a license fee. Caching fonts is the same as redistribution / copying fonts on other computers. If the license doesn't mention explicitly that caching is excluded from that rule, the distribution restriction should be followed, and therefore fonts should NOT be cached without risking a fine. 
