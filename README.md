@@ -232,7 +232,7 @@ function buildUrl(req) {
 ------
 
 ### Web fonts cache
-Another idea I had is to cache web fonts. As with images, loading web fonts can be a heavy task, since they have to load seperately and aren't updated frequently.
+Another idea I had is to cache web fonts. As with images, loading web fonts can be a heavy task, since they have to load seperately. Caching them makes sense because fonts aren't updated frequently.
 
 ------
 
@@ -279,9 +279,12 @@ Google fonts are already cached if you use a link instead of downloading it for 
 
 Source: [Smashing magazine](https://www.smashingmagazine.com/2019/06/optimizing-google-fonts-performance/)
 
-If you choose to self-host a font this is also allowed by Google, but again other distributors might handle this differently. From my research it's hard to find caching mentioned explicitly in most EULA's. [House Industries](https://houseind.com/license/) is mentioning it however, but [Microsoft](https://docs.microsoft.com/en-us/typography/fonts/font-faq) is only mentioning the restriction of redistribution. Since caching can be viewed as redistribution / copying it can be assumed that caching is not allowed, but further clarifications by Microsoft and other distributers might be necessary.
+If you choose to self-host a font this is also allowed by Google, but again other distributors might handle this differently. From my research it's hard to find caching mentioned explicitly in most EULA's. [House Industries](https://houseind.com/license/) is mentioning it however:
 
 > The Licensed Software may not be copied or duplicated in any form except for storage or caching as may temporarily occur during proper use of the Licensed Software, and, optionally, a single copy solely for backup purposes. The Licensed Software and its related documentation may not be resold, rented, leased, sublicensed or lent to another person or entity.
+
+[Microsoft](https://docs.microsoft.com/en-us/typography/fonts/font-faq) is only mentioning the restriction of redistribution. Since caching can be viewed as redistribution / copying it can be assumed that caching is not allowed, but further clarifications by Microsoft and other distributers might be necessary.
+
 
 ------
 
