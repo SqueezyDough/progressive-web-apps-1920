@@ -8,7 +8,7 @@
 * [Progressive web app](#pwa)
 * [Percieved performance optimisation](#perc-optim)
 * [Optimisation results](#optim-res)
-* [conclusion](#conc)
+* [Conclusion](#conc)
 * [Install](#Install)
 * [License](#License)
 
