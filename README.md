@@ -392,7 +392,7 @@ It also decreased the localhost response size significantly from 15.5KB to 1.5KB
 It is expected thhat caching files will do the most to your load time. When critical files are cached the page loads within 40ms.
 
 <details>
-<summary>Image - load time</summary>
+<summary>Image - caching load time</summary>
 
 ![](https://user-images.githubusercontent.com/33430653/78299384-10dfaf00-7536-11ea-9276-85bcb555add8.png)
 </details>
