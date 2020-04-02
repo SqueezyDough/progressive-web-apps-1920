@@ -17,7 +17,7 @@ I've been tasked to create a single page webapp that helps children from 9-12 ye
 
 <a name="Description"></a>
 # Description
-This webapp focusses on the ideation phase for crating a paper. Based on a old dutch tradition known as koekhappen (cake bites), children can eat books of their liking. When they're done, they can go to a results page and see the book details.
+This web app focusses on the ideation phase for crating a paper. Based on a old dutch tradition known as koekhappen (cake bites), children can eat books of their liking. When they're done, they can go to a results page and see the book details.
 
 ------
 
