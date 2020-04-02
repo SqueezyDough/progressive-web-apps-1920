@@ -232,27 +232,32 @@ function buildUrl(req) {
 ------
 
 ### Web fonts cache
-Another idea I had is to cache web fonts. As with images, loading web fonts can be a heavy task, since they have to load seperately. Caching them makes sense because fonts aren't updated frequently.
+Another idea I had is to cache web fonts. As with images, loading web fonts can be a heavy task, since they have to load seperately. Caching them makes sense because fonts aren't updated frequently. 
+
+I've cached fonts the same way I do with other file types. As you could've seen above, I look for different file types, includinng fonts
+
+```
+function isCachedFileType(fileType) {
+    return ['image', 'font', 'script', 'manifest'].includes(fileType)
+}
+```
 
 ------
 
-#### What the internet is saying
-
+#### What others are saying about caching fonts
 Other sources confirm the importance of storing webfonts as well.
 
 <details>
 <summary>Sources about the importance of caching webfonts</summary>
 
 > Proper caching is a must
-If your web application uses a service worker, serving font resources with  a cache-first strategy is appropriate for most use cases. You should not | store fonts using localStorage or IndexedDB; each of those has its own set of performance issues.
-
-Source: [developers.google.com](https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/webfont-optimization)
+If your web application uses a service worker, serving font resources with  a cache-first strategy is appropriate for most use cases. You should not | store fonts using localStorage or IndexedDB; each of those has its own set of performance issues. - Source: [developers.google.com](https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/webfont-optimization)
 
 > Since fonts are static resources that aren’t frequently updated, they can be cached locally in the browser, saving users having to download your fonts again the next time they access your site. This way, the amount of data the user’s browser has to download, as well as the number of HTTP requests, are reduced.
 
-> Google’s Web Fundamentals guide recommends making sure your servers provide a long-lived max-age timestamp and a revalidation token to allow for efficient font reuse between different pages on your site.
+> Google’s Web Fundamentals guide recommends making sure your servers provide a long-lived max-age timestamp and a revalidation token to allow for efficient font reuse between different pages on your site. - Source: [WP Rocket](https://wp-rocket.me/blog/guide-web-font-optimization/)
 
-Source: [WP Rocket](https://wp-rocket.me/blog/guide-web-font-optimization/)
+> Each font carries a weight that the web browser needs to download before they can be displayed. With the correct setup, the additional load time isn’t noticeable. However, get it wrong and your users could be waiting up to a few seconds before any text is displayed. - Source: [Smashing Magazine](https://www.smashingmagazine.com/2019/06/optimizing-google-fonts-performance/)
 
 </details>
 
