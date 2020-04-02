@@ -444,7 +444,7 @@ The critical rendering path contains a few stages:
 First byte that the browser recieves when it makes an HTTP request --> I've improved this by `compressing response objects and minifying HTML and CSS`.
 
 #### Time to first meaningful paint
-First meaningful content that appears on the page --> I've improved this by making sure no secondary files are loaded first and block the primary content. I've done this by makeinng sure `JS is ecxecutes after the rest of the page is loaded`. This can be done by using `defer` or putting it on the bottom of the body element.
+First meaningful content that appears on the page --> I've improved this by making sure no secondary files are loaded first and block the primary content. I've done this by makeinng sure `JS is ecxecutes after the rest of the page is loaded`. This can be done by using `defer` or putting it on the bottom of the body element. Only necessary JS in being requested. For example: I have a carousel.js file that only loads on the homepage.
 
 #### Time to interact
 First moment the user can interact with the page --> `All above improvements have an effect on this stage` since they either affect the amount of data that needs to be downloaded or prevents JS to be blocking primary content such as HTML and CSS.
