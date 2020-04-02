@@ -118,7 +118,7 @@ ______
 Web apps can be optimised by compressing and minimise critical files and prioritising some files over others so they won't be blocking.
 
 ## Loading JS Files
-I load all javascript files ont he bottom on the page to make them `non-blocking`. Additionally, javascript that only affects one specific page is only included in that page. This decreases the page load for other pages.
+I load all javascript files on the bottom on the page to make them `non-blocking`. Additionally, javascript that only affects one specific page is only included in that page. This decreases the page load for other pages.
 
 ## Minifying CSS
 CSS files are minified before being served to decrease overall file size using gulp. SCSS files are stored in a separate dev folder so the browser does not have to fetch them while they are practically useless for the browser.
@@ -413,7 +413,44 @@ It is expected thhat caching files will do the most to your load time. When crit
 
 All improvements improved the websites load time by `178%`, excluding caching files. With file caching enabled the website is over `2000%` faster then without any applied optimisation.
 
+The time to interact with the page has increased from 2.9s to 2.0s.
+
 ------
+
+# Conclusion
+> Je snapt het verschil tussen client side en server side renderen en kan server side rendering toepassen voor het tonen van data uit een API
+
+The server handles the data from the OBA API and requests from the client. My client-side JS handles user interaction and storing data in local storage. 
+
+------
+
+> Je begrijpt hoe een Service Worker werkt en kan deze in jouw applicatie op een nuttige wijze implementeren.
+
+The service worker functions as a proxy between the server and the client, but `lives` on the client. A service worker can handle requests on its own before it gets the chance to reach the server and serve its very own content such as HTML, CSS, images and fonts from the cache based on the request object. This significantly speeds up the web app since it doesn't need to request it from the server anymore, it is already stored in the cache.
+
+------
+
+> Je begrijpt hoe de critical rendering path werkt, en hoe je deze kan optimaliseren.
+
+> The Critical Rendering Path is the sequence of steps the browser goes through to convert the HTML, CSS, and JavaScript into pixels on the screen. Optimizing the critical render path improves render performance. - [MDN](https://developer.mozilla.org/en-US/docs/Web/Performance/Critical_rendering_path)
+
+------
+
+Most ideally, the browser handles the most critical files first, so unnecessary files won't block the rendering path.
+The critical rendering path contains a few stages:
+
+#### Time to first byte
+First byte that the browser recieves when it makes an HTTP request --> I've improved this by `compressing response objects and minifying HTML and CSS`.
+
+#### Time to first meaningful paint
+First meaningful content that appears on the page --> I've improved this by making sure no secondary files are loaded first and block the primary content. I've done this by makeinng sure `JS is ecxecutes after the rest of the page is loaded`. This can be done by using `defer` or putting it on the bottom of the body element.
+
+#### Time to interact
+First moment the user can interact with the page --> `All above improvements have an effect on this stage` since they either affect the amount of data that needs to be downloaded or prevents JS to be blocking primary content such as HTML and CSS.
+
+#### Page load time
+Time it takes to load and stabilise the content  --> `All above improvements have an effect on this stage` for the same reason. Additionally I've made sure `images have a fixed container` so the content doesn't reflow when the images are fully loaded in this stage.
+
 
 <a name="License"></a>
 # License
